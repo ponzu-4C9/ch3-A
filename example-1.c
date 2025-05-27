@@ -27,10 +27,10 @@ int led_canvas_clear(){
 }
 int led_canvas_set_pixel(int row, int col, const char *color){
     if(row < 0 || row >= LED_ROW || col < 0 || col >= LED_COL){
-        return -1; // Invalid index
+        return -1;
     }
     strcpy(led[row][col].color, color);
-    return 0; // Success
+    return 0;
 }
 int led_canvas_display(){
     for(int i = 0; i < LED_ROW; i++){
@@ -40,7 +40,7 @@ int led_canvas_display(){
         }
         printf("|\n");
     }
-    return 0; // Success
+    return 0;
 }
 
 int main(int argc, char const *argv[])
