@@ -17,17 +17,18 @@ typedef struct pixel{
     char color[11];
 } pixel;
 
-
-
-int main(int argc, char const *argv[])
-{
-    pixel led[LED_ROW][LED_COL];
-    
+pixel led[LED_ROW][LED_COL];
+int led_canvas_clear(){
     for(int i = 0; i < LED_ROW; i++){
         for(int j = 0; j < LED_COL; j++){
             strcpy(led[i][j].color, BLACK);
         }
     }
+}
+
+int main(int argc, char const *argv[])
+{
+    led_canvas_clear();
     //--------------------------------------------
     strcpy(led[0][10].color, GREEN);
     strcpy(led[5][0].color, RED);
