@@ -33,13 +33,16 @@ int led_canvas_set_pixel(int row, int col, const char *color){
     return 0;
 }
 int led_canvas_display(){
+    char canvas[16384] = {0};
     for(int i = 0; i < LED_ROW; i++){
-        printf("|");
+        strcat(canvas, "|");
         for(int j = 0; j < LED_COL; j++){
-            printf("%s", led[i][j].color);
+            strcat(canvas, led[i][j].color);
         }
-        printf("|\n");
+        strcat(canvas, "|\n");
     }
+    strcat(canvas, "\n");
+    printf("%s", canvas);
     return 0;
 }
 
