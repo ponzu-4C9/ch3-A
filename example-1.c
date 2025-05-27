@@ -25,17 +25,25 @@ int led_canvas_clear(){
         }
     }
 }
+int led_canvas_set_pixel(int row, int col, const char *color){
+    if(row < 0 || row >= LED_ROW || col < 0 || col >= LED_COL){
+        return -1; // Invalid index
+    }
+    strcpy(led[row][col].color, color);
+    return 0; // Success
+}
 
 int main(int argc, char const *argv[])
 {
     led_canvas_clear();
     //--------------------------------------------
     strcpy(led[0][10].color, GREEN);
+    led_canvas_set_pixel(1, 20, BLUE);
+    led_canvas_set_pixel(2, 30, YELLOW);
     strcpy(led[5][0].color, RED);
 
 
     //--------------------------------------------
-    printf("\n");
     for(int i = 0; i < LED_ROW; i++){
         printf("|");
         for(int j = 0; j < LED_COL; j++){
