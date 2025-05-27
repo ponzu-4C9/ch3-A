@@ -45,6 +45,7 @@ int led_canvas_display(){
 
 int main(int argc, char const *argv[])
 {
+    //↓ここを変えてね
     led_canvas_clear();
     led_canvas_set_pixel(1, 20, BLUE);
     led_canvas_set_pixel(2, 30, YELLOW);
