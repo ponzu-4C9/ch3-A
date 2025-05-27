@@ -32,18 +32,7 @@ int led_canvas_set_pixel(int row, int col, const char *color){
     strcpy(led[row][col].color, color);
     return 0; // Success
 }
-
-int main(int argc, char const *argv[])
-{
-    led_canvas_clear();
-    //--------------------------------------------
-    strcpy(led[0][10].color, GREEN);
-    led_canvas_set_pixel(1, 20, BLUE);
-    led_canvas_set_pixel(2, 30, YELLOW);
-    strcpy(led[5][0].color, RED);
-
-
-    //--------------------------------------------
+int led_canvas_display(){
     for(int i = 0; i < LED_ROW; i++){
         printf("|");
         for(int j = 0; j < LED_COL; j++){
@@ -51,6 +40,15 @@ int main(int argc, char const *argv[])
         }
         printf("|\n");
     }
+    return 0; // Success
+}
+
+int main(int argc, char const *argv[])
+{
+    led_canvas_clear();
+    led_canvas_set_pixel(1, 20, BLUE);
+    led_canvas_set_pixel(2, 30, YELLOW);
+    led_canvas_display();
 
     return 0;
 }
